@@ -1,15 +1,6 @@
-interface FaqItem {
-  question: string;
-  answer: string;
-}
+import type { FaqAccordionSlice } from "@/prismicio-types";
 
-interface FaqAccordionProps {
-  slice: {
-    items: FaqItem[];
-  };
-}
-
-export default function FaqAccordion({ slice }: FaqAccordionProps) {
+export default function FaqAccordion({ slice }: { slice: FaqAccordionSlice }) {
   return (
     <div className="space-y-4 mb-8">
       {slice.items.map((item, i) => (

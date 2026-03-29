@@ -1,0 +1,40 @@
+{
+  "id": "callout_block",
+  "type": "SharedSlice",
+  "name": "CalloutBlock",
+  "description": "Warning, info, or success callout box",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "--",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Default",
+      "primary": {
+        "variant": {
+          "type": "Select",
+          "config": {
+            "label": "Variant",
+            "options": ["warning", "info", "success"],
+            "default_value": "info"
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": "e.g. Attention Required"
+          }
+        },
+        "body": {
+          "type": "Text",
+          "config": {
+            "label": "Body",
+            "placeholder": "Callout message..."
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+import type { CalloutBlockSlice } from "@/prismicio-types";
+
 type CalloutVariant = "warning" | "info" | "success";
 
 const variantConfig = {
@@ -24,18 +26,9 @@ const variantConfig = {
   },
 };
 
-interface CalloutBlockProps {
-  slice: {
-    primary: {
-      variant: CalloutVariant;
-      title: string;
-      body: string;
-    };
-  };
-}
-
-export default function CalloutBlock({ slice }: CalloutBlockProps) {
-  const config = variantConfig[slice.primary.variant] || variantConfig.info;
+export default function CalloutBlock({ slice }: { slice: CalloutBlockSlice }) {
+  const variant = (slice.primary.variant as CalloutVariant) || "info";
+  const config = variantConfig[variant] || variantConfig.info;
   return (
     <div className={`${config.bg} border ${config.border} p-6 rounded-2xl flex gap-4 mb-8`}>
       <span className={`material-symbols-outlined ${config.iconColor} flex-shrink-0`}>

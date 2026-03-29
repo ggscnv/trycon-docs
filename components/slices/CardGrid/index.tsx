@@ -1,9 +1,4 @@
-interface Card {
-  icon: string;
-  title: string;
-  description: string;
-  iconColor?: "primary" | "secondary" | "tertiary";
-}
+import type { CardGridSlice } from "@/prismicio-types";
 
 const iconColorMap = {
   primary: "text-primary",
@@ -11,13 +6,7 @@ const iconColorMap = {
   tertiary: "text-tertiary",
 };
 
-interface CardGridProps {
-  slice: {
-    items: Card[];
-  };
-}
-
-export default function CardGrid({ slice }: CardGridProps) {
+export default function CardGrid({ slice }: { slice: CardGridSlice }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
       {slice.items.map((card, i) => (
@@ -26,7 +15,7 @@ export default function CardGrid({ slice }: CardGridProps) {
           className="bg-surface-container-low p-6 rounded-2xl hover:bg-surface-container-high hover:border hover:border-primary/20 transition-all group cursor-default"
         >
           <span
-            className={`material-symbols-outlined ${iconColorMap[card.iconColor || "primary"]} mb-4 block group-hover:scale-110 transition-transform`}
+            className={`material-symbols-outlined ${iconColorMap[card.icon_color || "primary"]} mb-4 block group-hover:scale-110 transition-transform`}
             style={{ fontVariationSettings: "'FILL' 1" }}
           >
             {card.icon}

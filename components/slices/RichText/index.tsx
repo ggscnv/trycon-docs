@@ -1,17 +1,5 @@
 import { PrismicRichText } from "@prismicio/react";
-
-type RichTextSlice = {
-  slice_type: "rich_text";
-  primary: {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    content: any;
-  };
-  items: never[];
-  id: string;
-  slice_label: null;
-  variation: "default";
-  version: string;
-};
+import type { RichTextSlice } from "@/prismicio-types";
 
 export default function RichText({ slice }: { slice: RichTextSlice }) {
   return (
@@ -25,7 +13,7 @@ export default function RichText({ slice }: { slice: RichTextSlice }) {
             </h1>
           ),
           heading2: ({ children }) => (
-            <h2 className="font-headline text-2xl font-bold text-on-surface mt-12 mb-4 flex items-center gap-3">
+            <h2 className="font-headline text-2xl font-bold text-on-surface mt-12 mb-4">
               {children}
             </h2>
           ),

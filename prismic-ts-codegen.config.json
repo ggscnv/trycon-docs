@@ -1,0 +1,9 @@
+{
+  "repositoryName": "trycon-docs",
+  "customTypesAPIToken": "",
+  "localPaths": {
+    "customTypes": "./customtypes/*/index.json",
+    "sharedSlices": "./components/slices/*/model.json"
+  },
+  "output": "./prismicio-types.d.ts"
+}

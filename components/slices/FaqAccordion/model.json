@@ -1,0 +1,32 @@
+{
+  "id": "faq_accordion",
+  "type": "SharedSlice",
+  "name": "FaqAccordion",
+  "description": "Collapsible FAQ items",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "--",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Default",
+      "primary": {},
+      "items": {
+        "question": {
+          "type": "Text",
+          "config": {
+            "label": "Question",
+            "placeholder": "e.g. Where do I find the API Keys?"
+          }
+        },
+        "answer": {
+          "type": "Text",
+          "config": {
+            "label": "Answer",
+            "placeholder": "Answer text..."
+          }
+        }
+      }
+    }
+  ]
+}

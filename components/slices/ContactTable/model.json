@@ -1,0 +1,39 @@
+{
+  "id": "contact_table",
+  "type": "SharedSlice",
+  "name": "ContactTable",
+  "description": "Who to Talk To table with name, area, and Slack channel",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "--",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Default",
+      "primary": {},
+      "items": {
+        "name": {
+          "type": "Text",
+          "config": {
+            "label": "Name",
+            "placeholder": "e.g. Jane Doe"
+          }
+        },
+        "area": {
+          "type": "Text",
+          "config": {
+            "label": "Area",
+            "placeholder": "e.g. Engineering Lead"
+          }
+        },
+        "slack": {
+          "type": "Text",
+          "config": {
+            "label": "Slack Channel",
+            "placeholder": "e.g. #eng-hq"
+          }
+        }
+      }
+    }
+  ]
+}

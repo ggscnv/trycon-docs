@@ -1,0 +1,61 @@
+{
+  "id": "navigation",
+  "label": "Navigation",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "nav_sections": {
+        "type": "Group",
+        "config": {
+          "label": "Nav Sections",
+          "fields": {
+            "section_label": {
+              "type": "Text",
+              "config": {
+                "label": "Section Label",
+                "placeholder": "e.g. Onboarding Path"
+              }
+            },
+            "links": {
+              "type": "Group",
+              "config": {
+                "label": "Links",
+                "fields": {
+                  "label": {
+                    "type": "Text",
+                    "config": {
+                      "label": "Label",
+                      "placeholder": "e.g. Onboarding Guide"
+                    }
+                  },
+                  "link": {
+                    "type": "Link",
+                    "config": {
+                      "label": "Link",
+                      "allowTargetBlank": false
+                    }
+                  },
+                  "icon": {
+                    "type": "Text",
+                    "config": {
+                      "label": "Icon",
+                      "placeholder": "Material Symbol name, e.g. school"
+                    }
+                  },
+                  "badge": {
+                    "type": "Text",
+                    "config": {
+                      "label": "Badge",
+                      "placeholder": "e.g. Required, New"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

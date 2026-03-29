@@ -1,0 +1,47 @@
+{
+  "id": "card_grid",
+  "type": "SharedSlice",
+  "name": "CardGrid",
+  "description": "2–3 column grid of tool or feature cards",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "--",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Default",
+      "primary": {},
+      "items": {
+        "icon": {
+          "type": "Text",
+          "config": {
+            "label": "Icon",
+            "placeholder": "Material Symbol name, e.g. terminal"
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": "e.g. VS Code"
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": "Short description..."
+          }
+        },
+        "icon_color": {
+          "type": "Select",
+          "config": {
+            "label": "Icon Color",
+            "options": ["primary", "secondary", "tertiary"],
+            "default_value": "primary"
+          }
+        }
+      }
+    }
+  ]
+}

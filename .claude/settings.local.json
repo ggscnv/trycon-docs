@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(unzip:*)"
+      "Bash(unzip:*)",
+      "Bash(npx @slicemachine/manager push --yes)",
+      "Bash(npx prismic-ts-codegen:*)",
+      "Bash(npx start-slicemachine:*)"
     ]
   }
 }

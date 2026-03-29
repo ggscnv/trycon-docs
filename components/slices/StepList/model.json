@@ -1,0 +1,39 @@
+{
+  "id": "step_list",
+  "type": "SharedSlice",
+  "name": "StepList",
+  "description": "Numbered step-by-step checklist",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "--",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Default",
+      "primary": {},
+      "items": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Step Title",
+            "placeholder": "e.g. Day 1: Environment Setup"
+          }
+        },
+        "body": {
+          "type": "Text",
+          "config": {
+            "label": "Step Body",
+            "placeholder": "Description of this step..."
+          }
+        },
+        "code": {
+          "type": "Text",
+          "config": {
+            "label": "Code Snippet (optional)",
+            "placeholder": "npm install ..."
+          }
+        }
+      }
+    }
+  ]
+}

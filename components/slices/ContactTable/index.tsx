@@ -1,16 +1,6 @@
-interface Contact {
-  name: string;
-  area: string;
-  slack: string;
-}
+import type { ContactTableSlice } from "@/prismicio-types";
 
-interface ContactTableProps {
-  slice: {
-    items: Contact[];
-  };
-}
-
-export default function ContactTable({ slice }: ContactTableProps) {
+export default function ContactTable({ slice }: { slice: ContactTableSlice }) {
   return (
     <div className="overflow-x-auto mb-8">
       <table className="w-full text-left text-sm">
@@ -23,7 +13,8 @@ export default function ContactTable({ slice }: ContactTableProps) {
         </thead>
         <tbody className="divide-y divide-outline-variant/10">
           {slice.items.map((contact, i) => {
-            const initials = contact.name
+            const name = contact.name ?? "";
+            const initials = name
               .split(" ")
               .map((n) => n[0])
               .join("")
@@ -36,7 +27,7 @@ export default function ContactTable({ slice }: ContactTableProps) {
                     <div className="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center text-[10px] text-zinc-400 font-bold flex-shrink-0">
                       {initials}
                     </div>
-                    <span className="font-medium">{contact.name}</span>
+                    <span className="font-medium">{name}</span>
                   </div>
                 </td>
                 <td className="py-4 pr-4 text-zinc-400">{contact.area}</td>

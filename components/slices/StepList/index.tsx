@@ -1,16 +1,6 @@
-interface Step {
-  title: string;
-  body: string;
-  code?: string;
-}
+import type { StepListSlice } from "@/prismicio-types";
 
-interface StepListProps {
-  slice: {
-    items: Step[];
-  };
-}
-
-export default function StepList({ slice }: StepListProps) {
+export default function StepList({ slice }: { slice: StepListSlice }) {
   return (
     <div className="space-y-6 mb-8">
       {slice.items.map((step, i) => (
