@@ -35,8 +35,8 @@ export default async function CategoryPage({ params }: Props) {
       filters: [prismic.filter.at("my.doc_page.category", category)],
       orderings: [{ field: "my.doc_page.title", direction: "asc" }],
     });
-  } catch {
-    // doc_page type not yet created in Prismic
+  } catch (e) {
+    console.error("[Prismic] getAllByType failed:", e);
   }
 
   return (
