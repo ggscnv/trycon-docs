@@ -1,0 +1,5 @@
+{
+  "repositoryName": "trycon-docs",
+  "adapter": "@slicemachine/adapter-next",
+  "libraries": ["./components/slices"]
+}
