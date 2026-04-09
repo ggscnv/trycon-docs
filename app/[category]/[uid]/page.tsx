@@ -77,18 +77,26 @@ export default async function DocPage({ params }: Props) {
       })),
     })) ?? [];
 
-  // Build TOC from slice content (h2/h3 headings in RichText slices)
+  // Build TOC from slice content (h1/h2/h3 headings in RichText slices)
+  function extractAnchorId(text: string): string {
+    const match = text.match(/\{#([^}]+)\}/);
+    return match ? match[1] : text.toLowerCase().replace(/[^\w\s-]/g, "").replace(/\s+/g, "-");
+  }
+  function cleanHeadingText(text: string): string {
+    return text.replace(/\s*\{#[^}]+\}/, "").trim();
+  }
+
   const headings: { id: string; text: string; level: number }[] = [];
   for (const slice of page.data.slices) {
     if (slice.slice_type === "rich_text") {
       const content = (slice as { primary: { content: prismic.RichTextField } }).primary.content;
       for (const block of content ?? []) {
-        if (block.type === "heading2" || block.type === "heading3") {
-          const text = "text" in block ? (block.text as string) : "";
+        if (block.type === "heading1" || block.type === "heading2" || block.type === "heading3") {
+          const rawText = "text" in block ? (block.text as string) : "";
           headings.push({
-            id: text.toLowerCase().replace(/\s+/g, "-"),
-            text,
-            level: block.type === "heading2" ? 2 : 3,
+            id: extractAnchorId(rawText),
+            text: cleanHeadingText(rawText),
+            level: block.type === "heading1" ? 2 : 3,
           });
         }
       }
@@ -101,11 +109,11 @@ export default async function DocPage({ params }: Props) {
   const nextDoc = currentIndex < allDocs.length - 1 ? allDocs[currentIndex + 1] : null;
 
   return (
-    <div className="flex min-h-screen pt-16">
+    <div className="flex min-h-screen pt-[68px] bg-[#f7f7f8]">
       <Sidebar sections={sidebarSections} />
 
-      <main className="flex-1 md:ml-72 lg:mr-72 px-6 py-12 lg:px-16">
-        <div className="max-w-3xl mx-auto">
+      <main className="flex-1 md:ml-60 lg:mr-72 px-8 py-10 lg:px-14">
+        <div className="max-w-3xl mx-auto bg-white rounded-2xl border border-[#e2e2e6] px-10 py-10">
           <BreadcrumbBar
             items={[
               { label: categoryLabel, href: `/${category}` },
@@ -118,8 +126,8 @@ export default async function DocPage({ params }: Props) {
             readingTime={page.data.reading_time ?? undefined}
           />
 
-          <div className="mb-12">
-            <h1 className="text-5xl font-black font-headline text-on-surface mb-6 tracking-tight leading-none">
+          <div className="mb-10">
+            <h1 className="text-4xl font-black font-headline text-[#111] mb-4 tracking-tight leading-tight">
               {page.data.title}
             </h1>
           </div>

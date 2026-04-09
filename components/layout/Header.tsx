@@ -15,32 +15,30 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 w-full flex justify-between items-center px-6 h-16 bg-[#131313]/60 backdrop-blur-xl z-50 shadow-[0_0_12px_rgba(139,92,246,0.1)]">
-      <div className="flex items-center gap-8">
-        <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-            <span
-              className="material-symbols-outlined text-on-primary-container text-xl"
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              rocket_launch
-            </span>
-          </div>
-          <span className="text-2xl font-black font-headline tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-emerald-400">
-            Trycon Docs
+    <header className="fixed top-0 w-full z-50 bg-[#0f1e2e]">
+      {/* Main navbar */}
+      <div className="flex items-center px-8 h-[68px]">
+        <Link href="/" className="flex flex-col mr-8">
+          <span className="font-headline text-[22px] font-bold text-white tracking-[-0.4px] leading-tight">
+            Trycon <span className="text-[#60a8e0]">People Hub</span>
+          </span>
+          <span className="text-[12px] text-white/40 leading-tight">
+            Everything you need to know about how we work
           </span>
         </Link>
-        <nav className="hidden md:flex items-center gap-6">
+
+        {/* Desktop tab-style nav */}
+        <nav className="hidden md:flex items-center h-full bg-[#1a2d4a] -mr-8 border-b border-white/[0.06]">
           {navLinks.map((link) => {
             const active = pathname.startsWith(link.href);
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium py-1 transition-all duration-300 ${
+                className={`px-7 h-[68px] flex items-center text-sm font-medium border-b-2 transition-all ${
                   active
-                    ? "text-primary border-b-2 border-primary"
-                    : "text-zinc-400 hover:text-zinc-200"
+                    ? "text-white border-[#60a8e0]"
+                    : "text-white/45 border-transparent hover:text-white/75"
                 }`}
               >
                 {link.label}
@@ -48,39 +46,38 @@ export default function Header() {
             );
           })}
         </nav>
-      </div>
 
-      <div className="flex items-center gap-4">
-        <div className="hidden sm:flex items-center bg-surface-container-lowest px-3 py-1.5 rounded-xl border border-outline-variant/15 w-64 group focus-within:ring-2 ring-primary/20 transition-all">
-          <span className="material-symbols-outlined text-outline text-lg">search</span>
-          <input
-            type="text"
-            placeholder="Search documentation..."
-            className="bg-transparent border-none focus:ring-0 text-xs w-full text-on-surface placeholder:text-zinc-600 outline-none ml-2"
-          />
-          <span className="text-[10px] bg-surface-container-high px-1.5 py-0.5 rounded text-outline">/</span>
+        <div className="ml-auto flex items-center gap-3">
+          <div className="hidden sm:flex items-center bg-white/5 px-3 py-1.5 rounded-xl border border-white/10 w-52 focus-within:border-[#60a8e0]/50 transition-all">
+            <span className="material-symbols-outlined text-white/40 text-lg">search</span>
+            <input
+              type="text"
+              placeholder="Search..."
+              className="bg-transparent border-none focus:ring-0 text-xs w-full text-white placeholder:text-white/30 outline-none ml-2"
+            />
+          </div>
+          <div className="w-8 h-8 rounded-full bg-white/10 border border-white/10 flex items-center justify-center">
+            <span className="material-symbols-outlined text-sm text-white/50" style={{ fontVariationSettings: "'FILL' 1" }}>
+              account_circle
+            </span>
+          </div>
+          <button
+            className="md:hidden p-2 text-white/60"
+            onClick={() => setMobileOpen(!mobileOpen)}
+          >
+            <span className="material-symbols-outlined">{mobileOpen ? "close" : "menu"}</span>
+          </button>
         </div>
-        <div className="w-8 h-8 rounded-full overflow-hidden border border-primary/20 bg-surface-container-high flex items-center justify-center">
-          <span className="material-symbols-outlined text-sm text-zinc-400" style={{ fontVariationSettings: "'FILL' 1" }}>
-            account_circle
-          </span>
-        </div>
-        <button
-          className="md:hidden p-2 text-on-surface"
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
-          <span className="material-symbols-outlined">{mobileOpen ? "close" : "menu"}</span>
-        </button>
       </div>
 
       {/* Mobile nav */}
       {mobileOpen && (
-        <div className="absolute top-16 left-0 w-full bg-[#0e0e0e] border-t border-outline-variant/10 py-4 px-6 flex flex-col gap-2 md:hidden">
+        <div className="absolute top-[68px] left-0 w-full bg-[#1a2d4a] border-t border-white/10 py-3 px-6 flex flex-col md:hidden">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-zinc-400 hover:text-zinc-200 py-2"
+              className="text-sm font-medium text-white/60 hover:text-white py-2.5 border-b border-white/5 last:border-0"
               onClick={() => setMobileOpen(false)}
             >
               {link.label}

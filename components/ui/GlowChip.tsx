@@ -5,15 +5,15 @@ interface GlowChipProps {
 }
 
 const variantClasses = {
-  primary: "bg-primary/10 text-primary border-primary/30 shadow-[0_0_4px_rgba(208,188,255,0.4)]",
-  secondary: "bg-secondary/10 text-secondary border-secondary/30 shadow-[0_0_4px_rgba(78,222,163,0.4)]",
-  tertiary: "bg-tertiary/10 text-tertiary border-tertiary/30 shadow-[0_0_4px_rgba(255,185,95,0.4)]",
+  primary: "bg-[#e8f2fb] text-[#2677BD] border-[#b8d6f0]",
+  secondary: "bg-[#eeeeff] text-[#6766DF] border-[#c5c4f8]",
+  tertiary: "bg-[#faeae8] text-[#C0392B] border-[#f0c0bc]",
 };
 
 export default function GlowChip({ label, variant = "secondary", pulse = false }: GlowChipProps) {
   return (
     <span
-      className={`border px-2 py-0.5 rounded-full text-xs font-bold tracking-widest uppercase ${variantClasses[variant]} ${
+      className={`border px-2 py-0.5 rounded-full text-[10px] font-semibold tracking-wider uppercase ${variantClasses[variant]} ${
         pulse ? "animate-pulse" : ""
       }`}
     >

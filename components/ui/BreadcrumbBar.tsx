@@ -15,18 +15,18 @@ export default function BreadcrumbBar({
   readingTime,
 }: BreadcrumbBarProps) {
   return (
-    <nav className="flex items-center gap-3 text-xs text-zinc-500 mb-8 font-medium flex-wrap">
+    <nav className="flex items-center gap-2 text-xs text-[#9a9aa8] mb-8 font-medium flex-wrap">
       {items.map((item, i) => (
         <span key={i} className="flex items-center gap-2">
           {i > 0 && (
-            <span className="material-symbols-outlined text-[14px]">chevron_right</span>
+            <span className="material-symbols-outlined text-[14px] text-[#c8c8d0]">chevron_right</span>
           )}
           {item.href ? (
-            <Link href={item.href} className="hover:text-primary transition-colors">
+            <Link href={item.href} className="hover:text-[#2677BD] transition-colors">
               {item.label}
             </Link>
           ) : (
-            <span className="text-zinc-300">{item.label}</span>
+            <span className="text-[#5a5a68]">{item.label}</span>
           )}
         </span>
       ))}
@@ -34,7 +34,7 @@ export default function BreadcrumbBar({
         <GlowChip label={badge} variant={badgeVariant} />
       )}
       {readingTime && (
-        <span className="text-zinc-500 text-[10px] font-medium">• {readingTime} Min Read</span>
+        <span className="text-[#9a9aa8] text-[10px] font-medium">· {readingTime} Min Read</span>
       )}
     </nav>
   );

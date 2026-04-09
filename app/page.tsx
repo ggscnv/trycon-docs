@@ -6,7 +6,8 @@ const categories = [
     label: "About",
     description: "Company mission, values, and history.",
     href: "/about",
-    color: "text-primary",
+    color: "text-[#2677BD]",
+    iconBg: "bg-[#e8f2fb]",
     count: "3 docs",
   },
   {
@@ -14,7 +15,8 @@ const categories = [
     label: "Policies",
     description: "Remote work, leave, and conduct policies.",
     href: "/policies",
-    color: "text-secondary",
+    color: "text-[#6766DF]",
+    iconBg: "bg-[#eeeeff]",
     count: "8 docs",
   },
   {
@@ -22,7 +24,8 @@ const categories = [
     label: "Trainings",
     description: "Onboarding guides and tool walkthroughs.",
     href: "/trainings",
-    color: "text-tertiary",
+    color: "text-[#C0392B]",
+    iconBg: "bg-[#faeae8]",
     count: "12 docs",
   },
   {
@@ -30,37 +33,38 @@ const categories = [
     label: "Roles & Responsibilities",
     description: "Role expectations and team structure.",
     href: "/roles",
-    color: "text-primary",
+    color: "text-[#2677BD]",
+    iconBg: "bg-[#e8f2fb]",
     count: "6 docs",
   },
 ];
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen pt-16">
+    <div className="min-h-screen pt-[68px]">
       {/* Hero */}
-      <section className="px-6 py-24 max-w-5xl mx-auto">
+      <section className="px-8 py-20 max-w-5xl mx-auto">
         <div className="mb-4">
-          <span className="bg-secondary/10 text-secondary border border-secondary/30 px-2 py-0.5 rounded-full text-xs shadow-[0_0_4px_rgba(78,222,163,0.4)] animate-pulse">
+          <span className="bg-[#e8f2fb] text-[#2677BD] border border-[#b8d6f0] px-3 py-1 rounded-full text-xs font-semibold animate-pulse">
             Live
           </span>
         </div>
-        <h1 className="font-headline text-5xl md:text-6xl font-black tracking-tight text-on-surface mb-6 leading-none max-w-3xl">
+        <h1 className="font-headline text-5xl md:text-6xl font-black tracking-tight text-[#111] mb-6 leading-none max-w-3xl">
           Everything you need to know about Trycon.
         </h1>
-        <p className="text-xl text-zinc-400 leading-relaxed max-w-2xl mb-10">
+        <p className="text-lg text-[#5a5a68] leading-relaxed max-w-2xl mb-10">
           Your internal source of truth for policies, training, roles, and more.
         </p>
         <div className="flex items-center gap-4">
           <Link
             href="/trainings"
-            className="bg-primary-container text-on-primary-container rounded-full px-6 py-3 text-sm font-bold shadow-[0_0_12px_rgba(139,92,246,0.2)] hover:shadow-[0_0_18px_rgba(139,92,246,0.35)] transition-all"
+            className="bg-[#2677BD] text-white rounded-lg px-6 py-3 text-sm font-semibold hover:bg-[#1a5a9c] transition-colors"
           >
             Browse Trainings
           </Link>
           <Link
             href="/policies"
-            className="bg-surface-container-high text-on-surface rounded-full px-6 py-3 text-sm font-bold hover:bg-surface-container-highest transition-all"
+            className="bg-white text-[#5a5a68] rounded-lg px-6 py-3 text-sm font-semibold border border-[#e2e2e6] hover:bg-[#f7f7f8] transition-colors"
           >
             View Policies
           </Link>
@@ -68,24 +72,24 @@ export default function HomePage() {
       </section>
 
       {/* Category Cards */}
-      <section className="px-6 pb-24 max-w-5xl mx-auto">
-        <h2 className="font-headline text-2xl font-bold text-on-surface mb-8">Browse by category</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <section className="px-8 pb-24 max-w-5xl mx-auto">
+        <h2 className="font-headline text-xl font-bold text-[#111] mb-6">Browse by category</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {categories.map((cat) => (
             <Link
               key={cat.label}
               href={cat.href}
-              className="bg-surface-container-low p-6 rounded-2xl hover:bg-surface-container-high hover:border hover:border-primary/20 transition-all group cursor-pointer block"
+              className="bg-white p-6 rounded-2xl border border-[#e2e2e6] hover:border-[#b8d6f0] hover:shadow-md transition-all group cursor-pointer block"
             >
               <span
-                className={`material-symbols-outlined ${cat.color} mb-4 block group-hover:scale-110 transition-transform text-3xl`}
+                className={`material-symbols-outlined ${cat.color} ${cat.iconBg} w-10 h-10 flex items-center justify-center rounded-lg mb-4 group-hover:scale-110 transition-transform text-2xl`}
                 style={{ fontVariationSettings: "'FILL' 1" }}
               >
                 {cat.icon}
               </span>
-              <h3 className="font-bold text-zinc-200 mb-2">{cat.label}</h3>
-              <p className="text-xs text-zinc-500 mb-4">{cat.description}</p>
-              <span className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest">{cat.count}</span>
+              <h3 className="font-bold text-[#111] mb-1.5 text-sm">{cat.label}</h3>
+              <p className="text-xs text-[#9a9aa8] mb-4 leading-relaxed">{cat.description}</p>
+              <span className="text-[10px] font-semibold text-[#9a9aa8] uppercase tracking-wider">{cat.count}</span>
             </Link>
           ))}
         </div>
